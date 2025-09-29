@@ -1,0 +1,93 @@
+﻿<Window x:Class="GiamSatNhaMay.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Thông tin máy" Height="1080" Width="1920"
+        WindowStyle="SingleBorderWindow"
+        WindowState="Maximized"
+        Background="White" Foreground="White"
+        Icon="/Image/Icon_Logo_CNVGroup.ico">
+
+    <DockPanel LastChildFill="True">
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top" Background="#2C3E50" Foreground="White" Height="40">
+            <Menu.Resources>
+                <Style TargetType="MenuItem">
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="Padding" Value="20,10"/>
+                    <Setter Property="Margin" Value="5,0"/>
+                </Style>
+            </Menu.Resources>
+            <MenuItem Header="🏠 Trang chủ"/>
+            <MenuItem Header="ℹ Thông tin"/>
+            <MenuItem Header="📊 Báo cáo"/>
+            <MenuItem Header="➕ Thêm"/>
+        </Menu>
+
+        <!-- Main Split -->
+        <Grid Background="#ECF0F1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <!-- Tab + Expander left side -->
+                <ColumnDefinition Width="2*" />
+                <!-- Panel Information right side -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Tab + Expander left -->
+            <TabControl Grid.Column="0" Margin="10">
+                <!-- Tab 1 -->
+                <TabItem Header="Máy trực tiếp" FontWeight="Bold" FontSize="14">
+                    <ScrollViewer>
+                        <StackPanel Margin="10">
+                            <Expander Header="Gia công" IsExpanded="True" FontWeight="Bold">
+                                <WrapPanel x:Name="wrapPanelGiaCong"/>
+                            </Expander>
+                            <Expander Header="Pallet" IsExpanded="True" FontWeight="Bold">
+                                <WrapPanel x:Name="wrapPanelPallet"/>
+                            </Expander>
+                            <Expander Header="Kết cấu" IsExpanded="True" FontWeight="Bold">
+                                <WrapPanel x:Name="wrapPanelKetCau"/>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!-- Tab 2 -->
+                <TabItem Header="Máy gián tiếp" FontWeight="Bold" FontSize="14">
+                    <ScrollViewer>
+                        <StackPanel Margin="10">
+                            <Expander Header="Máy gián tiếp" IsExpanded="True" FontWeight="Bold">
+                                <WrapPanel x:Name="wrapPanelMayGianTiep"/>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+
+            <!-- Panel thông tin bên phải -->
+            <StackPanel Grid.Column="1" Margin="10" VerticalAlignment="Top">
+                <TextBlock Text="Thông tin máy" FontWeight="Bold" FontSize="18" Margin="0,30,0,10" HorizontalAlignment="Center" Foreground="Black"/>
+
+                <TextBlock Text="Hãng sản xuất:" Foreground="Black" FontWeight="Bold" FontSize="13"/>
+                <TextBox x:Name="txtManufacturer" Height="30" Margin="0,10,0,10" VerticalAlignment="Center"  Padding="5" FontWeight="Bold"  FontSize="13"/>
+
+                <TextBlock Text="Ngày đưa vào vận hành:" Foreground="Black" FontWeight="Bold" FontSize="13"/>
+                <TextBox x:Name="txtStartDate" Height="30" Margin="0,10,0,10" VerticalAlignment="Center" Padding="5" FontWeight="Bold"  FontSize="13"/>
+
+                <TextBlock Text="Lần cuối bảo trì:" Foreground="Black" FontWeight="Bold" FontSize="13"/>
+                <TextBox x:Name="txtLastMaintenance" Height="30" Margin="0,10,0,10" VerticalAlignment="Center" Padding="5" FontWeight="Bold"  FontSize="13"/>
+
+                <TextBlock Text="Người liên hệ:" Foreground="Black" FontWeight="Bold" FontSize="13"/>
+                <TextBox x:Name="txtContactPerson" Height="30" Margin="0,10,0,10" VerticalAlignment="Center" Padding="5" FontWeight="Bold"  FontSize="13"/>
+
+                <TextBlock Text="Bảng mã lỗi:" Foreground="Black" FontWeight="Bold" FontSize="13"/>
+                <TextBox x:Name="txtErrorCodes" AcceptsReturn="True" Height="100" TextWrapping="Wrap" Margin="0,0,0,10" Padding="10" FontWeight="Bold" FontSize="13"/>
+
+                <Button Content="Lưu" Width="100" Height="35" HorizontalAlignment="Center" Background="Green" Foreground="White" Click="btnSave_Click"/>
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</Window>

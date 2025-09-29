@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Icon_Logo_CNVGroup.ico" />
+    <None Remove="Image\Logo_CNVGroup1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.12.0" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.Wpf.Core" Version="0.9.8" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AssemblyInfo.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Icon_Logo_CNVGroup.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Logo_CNVGroup1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

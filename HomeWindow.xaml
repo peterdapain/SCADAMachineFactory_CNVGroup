@@ -1,0 +1,74 @@
+﻿<Window x:Class="GiamSatNhaMay.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GiamSatNhaMay"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Phần Mềm Giám Sát Nhà Máy Sản Xuất" Height="1080" Width="1920"
+        WindowStyle="SingleBorderWindow"
+        WindowState="Maximized"
+        Background="White" Foreground="White"
+        Icon= "/Image/Icon_Logo_CNVGroup.ico">
+    
+    <DockPanel LastChildFill="True">
+        <!-- Menu -->
+        <Menu DockPanel.Dock="Top" Background="#2C3E50" Foreground="White" Height="40">
+            <Menu.Resources>
+                <!-- Style for all MenuItem -->
+                <Style TargetType="MenuItem">
+                    <Setter Property="FontSize" Value="13"/>
+                    <Setter Property="Padding" Value="20,10"/>
+                    <Setter Property="Margin" Value="5,0"/>
+                </Style>
+            </Menu.Resources>
+
+            <MenuItem Header="🏠 Trang chủ"/>
+            <MenuItem Header="ℹ Thông tin" Click="btnInfo_Click"/>
+            <MenuItem Header="📊 Báo cáo sản xuất">
+                <MenuItem Header="Biểu đồ" Foreground="White" Background="#FF2C3E50" Click="btnChart_Click"/>
+                <MenuItem Header="Bảng thống kê" Background="#FF2C3E50" Foreground="White" Click="btnDataGrid_Click"/>
+            </MenuItem>
+            <MenuItem Header="➕ Thêm">
+                <MenuItem Header="Ngôn ngữ" Background="#FF2C3E50"/>
+                <MenuItem Header="Tác giả" Background="#FF2C3E50"/>
+                <MenuItem Header="Liên hệ" Background="#FF2C3E50"/>
+            </MenuItem>
+        </Menu>
+        <!-- Monitor window -->
+        <Grid Background="#ECF0F1">
+            <TabControl>
+                <!-- Tab 1:  -->
+                <TabItem Header="Máy trực tiếp" FontSize="12" FontWeight="Bold">
+                    <ScrollViewer FontSize="15">
+                        <StackPanel Margin="10">
+                            <Expander Header="Gia công" x:Name="expanderGiaCong" IsExpanded="True" FontWeight="Bold" FontSize="15">
+                                <WrapPanel x:Name="wrapPanelGiaCong"/>
+                            </Expander>
+                            <Expander Header="Pallet" x:Name="expanderPallet" IsExpanded="True" FontWeight="Bold" FontSize="15">
+                                <WrapPanel x:Name="wrapPanelPallet"/>
+                            </Expander>
+                            <Expander Header="Kết cấu" x:Name="expanderKetCau" IsExpanded="True" FontWeight="Bold" FontSize="15">
+                                <WrapPanel x:Name="wrapPanelKetCau"/>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!-- Tab 2:  -->
+                <TabItem Header="Máy gián tiếp" FontSize="12" FontWeight="Bold" >
+
+                    <ScrollViewer FontSize="15">
+                        <WrapPanel Margin="10">
+                            <Expander Header="Máy gián tiếp" x:Name="expanderGianTiep" IsExpanded="True" FontWeight="Bold" FontSize="15">
+                                <WrapPanel x:Name="wrapPanelMayGianTiep"/>
+                            </Expander>
+                        </WrapPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+    </DockPanel>
+</Window>

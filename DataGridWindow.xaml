@@ -1,0 +1,60 @@
+﻿<Window x:Class="GiamSatNhaMay.DataGridWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GiamSatNhaMay"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Bảng báo cáo sản xuất"
+        Height="1080" Width="1920"
+        WindowState="Maximized"
+        Background="White">
+
+    <DockPanel Margin="10">
+        <!-- Filter -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 0 0 10">
+            <TextBlock Text="Loại máy:" VerticalAlignment="Center" Margin="0 0 6 0"/>
+            <ComboBox x:Name="cbTypeFilter" Width="150" Margin="0 0 10 0"
+                      SelectionChanged="cbTypeFilter_SelectionChanged"/>
+
+            <TextBlock Text="Từ:" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dpStartDate" Width="120" Margin="4 0"/>
+
+            <TextBlock Text="Đến:" VerticalAlignment="Center"/>
+            <DatePicker x:Name="dpEndDate" Width="120" Margin="4 0"/>
+
+            <Button x:Name="btnRun" Content="Thống kê" Width="90" Margin="10 0"
+                    Click="btnRun_Click"/>
+            <Button x:Name="btnExport" Content="Xuất Excel" Width="90" Margin="10 0"
+                    Click="btnExport_Click"/>
+        </StackPanel>
+
+        <!-- List Machine -->
+        <Border DockPanel.Dock="Left" BorderBrush="#DDD" BorderThickness="1" Padding="8" CornerRadius="6" Margin="0,0,10,0" Width="220">
+            <StackPanel>
+                <TextBlock Text="Chọn máy:" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,8"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="icMachines">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}"
+                                  Tag="{Binding Id}"
+                                  Margin="2"
+                                  FontSize="14"
+                                  Checked="MachineCheckBox_Checked"
+                                  Unchecked="MachineCheckBox_Unchecked"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+        <!-- Panel datagrid -->
+        <ScrollViewer DockPanel.Dock="Right" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ChartPanel" Orientation="Vertical"/>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

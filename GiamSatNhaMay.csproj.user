@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="ChartWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DataGridWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HomeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="InfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PopupWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
